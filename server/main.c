@@ -14,6 +14,7 @@ char	bin_to_dec(int nb)
 
 	dec = 0;
 	base = 1;
+	i = 0;
 	while (nb != 0)
 	{
 		rem = nb % 10;
@@ -50,15 +51,14 @@ void	handler(int signo)
 	}
 }
 
-int	main(int argc, char **argv)
+int	main(void)
 {
 	pid_t	pid;
-	int		res[2];
 
 	signal(SIGUSR1, handler);
 	signal(SIGUSR2, handler);
 	pid = getpid();
-	printf("pid: %d\n", pid);
+	printf("%d\n", pid);
 	while (1)
 	{
 		sleep(1);
